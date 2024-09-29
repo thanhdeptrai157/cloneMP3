@@ -1,0 +1,23 @@
+.sidebar-divine{
+    border-top: 1px solid #342C3E;
+    height: 1px;
+    width: 100%;
+}
+
+.login-container-content{
+    background-color: #9B4DE0;
+    height: 100px;
+    padding: 15px 10px;
+    text-align: center;
+}
+
+.btn{
+    border: 1px solid white;
+    padding: 4px 35px;
+    border-radius: 18px;
+    font-weight: 600;
+    background-color: #A55FE3;
+}
+.btn:hover{
+    background-color: #a059de;
+}
