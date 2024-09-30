@@ -3,7 +3,12 @@
     height: 1px;
     width: 100%;
 }
+.logo{
+    background-image: url("https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/backgrounds/logo-dark.svg") ;
+    background-size: 100%;
+    background-repeat: no-repeat;
 
+}
 .login-container-content{
     background-color: #9B4DE0;
     height: 100px;

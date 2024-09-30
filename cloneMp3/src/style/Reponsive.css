@@ -1,0 +1,32 @@
+@media (max-width: 1133px){
+    .navbar{
+        left: 70px  !important;
+    }
+    .sidebar{ 
+        width: 70px !important;
+    }
+    .logo{
+        background-image: url("https://zjs.zmdcdn.me/zmp3-desktop/releases/v1.10.47/static/media/icon_zing_mp3_60.f6b51045.svg") ;
+        width: 45px !important;
+        height: 45px !important;
+    }
+    .logo_container{
+        padding: 0 !important;
+        justify-content: center;
+    }
+    a span, .login_container, .new_playlist_text{
+        display: none !important;
+    }
+    .new_playlist_button{
+        width: 70px !important;
+    }
+    a {
+        padding: 12px 0 !important;
+        justify-content: center;
+    }
+    a svg{
+        margin-right: 0 !important;
+    }
+}
+
+    

@@ -3,11 +3,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeftLong, faGear, faMagnifyingGlass, } from "@fortawesome/free-solid-svg-icons";
 import { faArrowRightLong } from "@fortawesome/free-solid-svg-icons/faArrowRightLong";
 import { Download } from "../utils/icon";
+import '../style/Reponsive.css'
 const Navbar = ()=>{
     return (
-        <div className="h-[70px] bg-[#170F23] w-screen px-[59px] flex items-center ">
+        <div className="navbar h-[70px] bg-[#170F23] px-[59px] flex items-center fixed left-[240px] right-0 min-w-[660px] transition-all duration-500 ease-in-out">
             <div className="navbar-items flex justify-between flex-1 items-center">
-                <div className="item-left flex gap-5 flex-1">
+                <div className="item-left flex gap-5 flex-1 mr-[10px]">
                     <button className="mr-[5px]"><FontAwesomeIcon icon= {faArrowLeftLong} color="#5B5564" size="lg"/></button>
                     <button className="mr-[5px]"><FontAwesomeIcon icon = {faArrowRightLong} color="#5B5564" size="lg"/></button>
                     <div className="seach__container flex items-center h-[40px] bg-[#2F2739] rounded-[20px] w-[100%] max-w-[440px] px-[10px]">
@@ -33,7 +34,6 @@ const Navbar = ()=>{
                     </div>
                 </div>
             </div>
-    
         </div>
     )
 }
