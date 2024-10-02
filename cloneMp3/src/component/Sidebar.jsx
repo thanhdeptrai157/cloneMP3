@@ -1,9 +1,10 @@
-import React from "react";
-import logo from '../assets/logo-dark.svg';
+import React, { useState } from "react";
 import '../style/Sidebar.css';
 import { Lib, Radio, Dics, Chart, Star, Type, Bxh, Plus, ZingIcon } from "../utils/icon";
 import '../style/Reponsive.css'
+import Player from "./Player";
 const SideBar = () => {
+
     return (
         <div className="w-[240px] h-screen flex flex-col justify-between fixed sidebar bg-[#231B2E] transition-all duration-500 ease-in-out" >
             <div>
@@ -35,11 +36,14 @@ const SideBar = () => {
                     </div>
                 </div>
             </div>
-            <button className=" new_playlist_button flex items-center w-[240px] px-[21px] bg-[#231B2E] h-[54px] sidebar-divine transition-all duration-500 ease-in-out">
+            <button className=" new_playlist_button flex items-center w-[240px] px-[21px] bg-[#231B2E] h-[54px] sidebar-divine transition-all duration-500 ease-in-out fixed bottom-[90px]">
                 <div className=" text-gray-400 hover:text-white font-semibold text-[14px] flex items-center">
-                    <Plus/><span className="new_playlist_text">Tạo Playlist mới</span>
+                    <Plus/><span className="new_playlist_text">Tạo playlist mới</span>
                 </div>
             </button>
+            <Player />
+
+           
         </div>
     )
 }
