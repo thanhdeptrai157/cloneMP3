@@ -2,15 +2,15 @@ import React, { useState } from "react";
 import '../style/Sidebar.css';
 import { Lib, Radio, Dics, Chart, Star, Type, Bxh, Plus, ZingIcon } from "../utils/icon";
 import '../style/Reponsive.css'
-import Player from "./Player";
+import { useNavigate } from "react-router-dom";
 const SideBar = () => {
-
+    const navigate = useNavigate();
     return (
         <div className="w-[240px] h-screen flex flex-col justify-between fixed sidebar bg-[#231B2E] transition-all duration-500 ease-in-out" >
             <div>
                 <nav>
                     <div className="logo_container w-full h-[70px] top-10 flex pr-[25px] pl-[28px]" >
-                        <button><div alt="" className="w-[120px] h-[40px] logo " ></div></button>
+                        <button onClick={()=>navigate('/')}><div alt="" className="w-[120px] h-[40px] logo " ></div></button>
                     </div>
                 </nav>
                 <nav>
@@ -36,14 +36,11 @@ const SideBar = () => {
                     </div>
                 </div>
             </div>
-            <button className=" new_playlist_button flex items-center w-[240px] px-[21px] bg-[#231B2E] h-[54px] sidebar-divine transition-all duration-500 ease-in-out fixed bottom-[90px]">
+            <button className=" new_playlist_button flex items-center w-[240px] px-[21px] bg-[#231B2E] h-[54px] sidebar-divine transition-all duration-500 ease-in-out mt-auto ">
                 <div className=" text-gray-400 hover:text-white font-semibold text-[14px] flex items-center">
                     <Plus/><span className="new_playlist_text">Tạo playlist mới</span>
                 </div>
             </button>
-            <Player />
-
-           
         </div>
     )
 }

@@ -6,7 +6,7 @@ import { Download } from "../utils/icon";
 import '../style/Reponsive.css'
 const Navbar = ()=>{
     return (
-        <div className="navbar h-[70px] bg-[#170F23] px-[59px] flex items-center fixed left-[240px] right-0 min-w-[660px] transition-all duration-500 ease-in-out opacity-90">
+        <div className="navbar h-[70px] bg-[#170F23] px-[59px] flex items-center fixed left-[240px] right-0 min-w-[660px] transition-all duration-500 ease-in-out opacity-90 z-50">
             <div className="navbar-items flex justify-between flex-1 items-center">
                 <div className="item-left flex gap-5 flex-1 mr-[10px]">
                     <button className="mr-[5px]"><FontAwesomeIcon icon= {faArrowLeftLong} color="#5B5564" size="lg"/></button>
