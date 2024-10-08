@@ -5,8 +5,8 @@ export const setCurSongId= (sid) => ({
     sid,
 });
 
-export const setIsPlaying= (sid) => ({
+export const setIsPlaying= (flag) => ({
     type: actionType.PLAY,
-    
+    flag
 });
 

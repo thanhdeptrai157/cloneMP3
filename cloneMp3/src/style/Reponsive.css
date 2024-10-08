@@ -6,7 +6,7 @@
         width: 70px !important;
     }
     .logo{
-        background-image: url("https://zjs.zmdcdn.me/zmp3-desktop/releases/v1.10.47/static/media/icon_zing_mp3_60.f6b51045.svg") ;
+        background-image: url("https://zjs.zmdcdn.me/zmp3-desktop/releases/v1.10.47/static/media/icon_zing_mp3_60.f6b51045.svg") !important;
         width: 45px !important;
         height: 45px !important;
     }
@@ -32,4 +32,69 @@
     }
 }
 
+@media (max-width: 1300px) {
+    .album_container{
+        margin-top: 0px !important;
+        display: block !important;
+        
+    }
+    .infor-playlist{
+        width: 100% !important;
+        position: relative !important;
+        flex-direction: row !important;
+        align-items: start !important;
+        height: fit-content !important;
+        margin-bottom: 120px !important;
+    }
+    .playlist-song{
+        width: 100% !important; 
+    }
+    .img-album, .img-container{
+        width: 200px !important;
+        height: 200px !important;
+    }
+    .info-album{
+        display: block !important;
+        text-align: left;
+        margin-left: 30px;
+    }
+    .title{
+        margin-top: 5px !important;
+    }
+    .btn-group-action{
+        display: flex;
+        align-items: center;
+        gap: 10px
+    }
+    .description{
+        display: none;
+    }
+    .description-res{
+        display: block !important;
+    }   
+    .img-artist img{
+        width: 200px !important;
+    }
     
+}  
+@media (max-width: 1230px) {
+    .chart-content{
+        flex-direction: column-reverse !important
+    }
+    .list-rank{
+        width:100% !important
+    }
+
+        
+}
+.chart-section {
+    width: 100%;
+    height: auto; 
+    min-height: 300px; 
+}
+
+canvas {
+    width: 100% !important; 
+    height: auto !important;
+    max-height: 400px;
+}

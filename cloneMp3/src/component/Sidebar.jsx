@@ -16,7 +16,7 @@ const SideBar = () => {
                 <nav>
                     <ul>
                         <li><a href="" className="flex px-[21px] py-3" ><Lib /><span className="hover:text-white text-gray-400 font-semibold text-[14px] flex items-center">Thư Viện</span></a></li>
-                        <li><a href="" className="flex px-[21px] py-3" ><Dics /><span className="hover:text-white text-gray-400 font-semibold text-[14px]"  >Khám Phá</span></a></li>
+                        <li onClick={()=>navigate('/')}><a className="flex px-[21px] py-3" ><Dics /><span className="hover:text-white text-gray-400 font-semibold text-[14px]" >Khám Phá</span></a></li>
                         <li><a href="" className="flex px-[21px] py-3" ><Chart /><span className="hover:text-white text-gray-400 font-semibold text-[14px] flex items-center" >#zingchart</span></a></li>
                         <li><a href="" className="flex px-[21px] py-3" ><Radio /><span className="hover:text-white text-gray-400 font-semibold text-[14px] flex items-center" >Radio </span> <span className="ml-3 flex items-center" ><img src="https://zjs.zmdcdn.me/zmp3-desktop/dev/147506/static/media/live-tag.e25dd240.svg" alt="" /></span></a></li>
                     </ul>
