@@ -8,6 +8,7 @@ import { Router, Route, Routes } from 'react-router-dom'
 import Default from './routes/Default'
 import Album from './routes/Album'
 import PATH from './utils/path'
+import Artist from './routes/Artist'
 
 
 function App() {
@@ -23,6 +24,7 @@ const dispatch = useDispatch();
         <Route path='/' element= {<Default />}>
             <Route path={PATH.HOME} element = {<Home />}></Route>
             <Route path={PATH.ALBUM} element = {<Album />}></Route>
+            <Route path={PATH.ARTIST} element = {<Artist />}></Route>
         </Route>
       </Routes>
 

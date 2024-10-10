@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 const WeekChart = () => {
   const {weekChart} = useSelector(state => state.app)
   return (
-    <div className='flex w-full mb-[100px] justify-between gap-[2%]'>
+    <div className='flex w-full mb-[30px] justify-between gap-[2%]'>
         {
           weekChart?.items?.map((item, key)=>(
             <div className=' overflow-hidden rounded-md w-[33%]' key={key}>

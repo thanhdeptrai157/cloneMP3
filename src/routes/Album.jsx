@@ -4,13 +4,14 @@ import * as apis from '../apis/music'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMusic, faPlay, faShuffle, faSort, faUserPlus } from '@fortawesome/free-solid-svg-icons'
 import { Ellipsis, Heart, Premium } from '../utils/icon'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import * as actions from '../store/actions/music'
 import * as func from '../utils/function'
 const Album = () => {
     const [data, setData] = useState(null)
     const dispatch = useDispatch()
     const {id } = useParams()
+    const {songs } = useSelector(state => state.music);
     
     const handleClick = (id) => {
         dispatch(actions.setCurSongId(id))
@@ -21,6 +22,7 @@ const Album = () => {
             const respone = await apis.getPlaylistMusic(id)
             if (respone.data.err === 0) {
                 setData(respone.data.data)
+                dispatch(actions.setPlaylist(respone?.data?.data.song.items));
             }
         }
         fetchPlaylist(id)
@@ -40,7 +42,13 @@ const Album = () => {
                     <div className=' items-center info-album '>
                         <h3 className='text-white text-[20px] font-bold mt-4 title'>{data?.title}</h3>
                         <div className='text-gray-500 text-[12px] font-semibold'>Cập nhật: {func.calDayAlbum(data?.contentLastUpdate)}</div>
-                        <div className='text-gray-500 text-[12px] font-semibold'>{data?.artistsNames}</div>
+                        <div className='text-gray-500 text-[12px] font-semibold'>
+                            {
+                            data?.artists?.map((artist, index) => (
+                                <a href="" className="text-[#7C7883] hover:text-[#9B4DE0] text-[12px] font-medium ">{artist.name}{index < data?.artists?.length - 1 && ', '}</a>
+                            ))
+                            }
+                        </div>
                         <div className='text-gray-400 text-[12px] font-semibold'>{func.calLike(data?.like)} người yêu thích</div>
                         <div className='text-white text-[14px] hidden description-res mt-3' ><span className='text-gray-500 '>Lời tựa</span> {data?.sortDescription}</div>
                         <div className='btn-group-action'>
@@ -65,8 +73,8 @@ const Album = () => {
                         <div className='mr-[10px]'>THỜI GIAN</div>
 
                     </div>
-                    {data?.song.items.map(song => (
-                        <div className='flex items-center justify-between py-[14px] px-[10px] border-b border-gray-800 hover:bg-[#231B2E] hover:rounded-[5px] w-full' onClick={() => handleClick(song.encodeId)}>
+                    {songs?.map(song => (
+                        <div className='flex items-center justify-between py-[10px] px-[10px] border-b border-gray-800 hover:bg-[#231B2E] hover:rounded-[5px] w-full' onClick={() => handleClick(song.encodeId)}>
                             <div className='flex items-center gap-3 w-[45%]'>
                                 <FontAwesomeIcon icon={faMusic} color='gray' size='sm' />
                                 <img src={song.thumbnail} alt="" width={"40px"} className='rounded-md cursor-pointer' />
@@ -75,7 +83,13 @@ const Album = () => {
                                         <div className='flex text-white text-[14px] font-medium truncate max-w-full min-w-0'>{song.title}</div>
                                         <div>{song.streamingStatus === 2 && <Premium />}</div>
                                     </div>
-                                    <span className='text-[#7C7883] text-[12px] font-bold'>{song.artistsNames}</span>
+                                    <div className="">
+                                        {
+                                            song.artists?.map((artist, index) => (
+                                                <a href="" className="text-[#7C7883] hover:text-[#9B4DE0] text-[12px] font-medium truncate overflow-ellipsis">{artist.name}{index < song.artists?.length - 1 && ', '}</a>
+                                            ))
+                                        }
+                                    </div>
                                 </div>
                             </div>
                             <div className='w-[30%]'>
@@ -90,7 +104,7 @@ const Album = () => {
                 </div>
             </div>
             <h2 className='text-white text-[20px] font-bold mt-[100px]'>Nghệ Sĩ Tham Gia</h2>
-            <div className='flex justify-between mb-[300px] mt-5'>
+            <div className={`flex ${data?.artists.length > 2 ? 'justify-between' : ""} mb-[300px] mt-5`}>
                 {
                     data?.artists.map(artist => (
                         <div className='text-center mr-5'>

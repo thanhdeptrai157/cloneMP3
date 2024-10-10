@@ -2,14 +2,11 @@ import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { act, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Ellipsis, Premium } from "../utils/icon";
 import * as action from '../store/actions/music'
-import * as func from '../utils/function'
-import { faPlay } from "@fortawesome/free-solid-svg-icons";
+import Song from "./Song";
 const NewRelease = () => {
     const dispatch = useDispatch()
     const handleClick = (item) => {
-        // console.log(item.encodeId)
         dispatch(action.setCurSongId(item.encodeId));
         dispatch(action.setIsPlaying(true))
     }
@@ -20,7 +17,7 @@ const NewRelease = () => {
     const isSelected = "bg-[#9B4DE0] border border-transparent";
     const notSelected = "border-[hsla(0,0%,100%,0.1)] border"
 
-
+    const style ="w-[32%] hover:bg-[#2C2436] "
 
     const filteredItems = selectedGenre === "TẤT CẢ"
         ? new_realease.items?.all
@@ -53,37 +50,10 @@ const NewRelease = () => {
                     </a>
                 </div>
             </div>
-            <div className="flex flex-wrap mb-[50px]">
+            <div className="flex flex-wrap mb-[50px] justify-between">
                 {
                     filteredItems?.slice(0, 12).map((item, index) => (
-                        <div className="gap-4 w-[32%] p-[10px] hover:bg-[#2C2436] group cursor-pointer" onClick={() => handleClick(item)} key={index}>
-                            <div className="flex gap-4 items-center w-full">
-                                <div className="relative flex">
-                                    <img src={item.thumbnail} alt="" width={"60px"} height={"60px"} className="rounded-[5px] group-hover:opacity-40" />
-                                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 ">
-                                        <FontAwesomeIcon icon={faPlay} color="white" />
-                                    </div>
-                                </div>
-                                <div className="flex flex-col justify-between overflow-hidden flex-1">
-                                    <div className="flex items-center">
-                                        <span className="text-white text-[14px] truncate hover:text-[#9B4DE0] cursor-pointer min-w-0">
-                                            {item.title}
-                                        </span>
-                                        {item.streamingStatus === 2 && (
-                                            <div className="flex-shrink-0 ml-2">
-                                                <Premium />
-                                            </div>
-                                        )}
-                                    </div>
-                                    <span className="text-[#7C7883] text-[12px] font-semibold">{item.artistsNames}</span>
-                                    <span className="text-[#7C7883] text-[12px] font-semibold">{func.calDayRelease(parseInt(item.releaseDate))}</span>
-                                </div>
-                                <div className="w-[40px] h-[40px] rounded-full hidden group-hover:flex hover:bg-gray-700 items-center justify-center transition-all duration-200 ease-in-out">
-                                    <Ellipsis />
-                                </div>
-                            </div>
-                        </div>
-
+                        <Song item = {item} handleClick={handleClick} style={style} key={index}/>
                     ))
                 }
             </div>

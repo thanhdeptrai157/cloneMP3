@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 const SideBar = () => {
     const navigate = useNavigate();
     return (
-        <div className="w-[240px] h-screen flex flex-col justify-between fixed sidebar bg-[#231B2E] transition-all duration-500 ease-in-out" >
+        <div className="w-[240px] h-screen flex flex-col justify-between fixed sidebar bg-[#231B2E] transition-all duration-500 ease-in-out z-50" >
             <div>
                 <nav>
                     <div className="logo_container w-full h-[70px] top-10 flex pr-[25px] pl-[28px]" >
