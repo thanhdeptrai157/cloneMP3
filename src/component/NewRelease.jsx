@@ -1,6 +1,6 @@
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { act, useState } from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import * as action from '../store/actions/music'
 import Song from "./Song";

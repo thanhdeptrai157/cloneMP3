@@ -3,7 +3,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlay } from '@fortawesome/free-solid-svg-icons'
 import { Premium, Ellipsis } from '../utils/icon'
 import * as func from '../utils/function'
+import { useNavigate } from 'react-router-dom'
+import PATH from "../utils/path";
+
 const Song = ({item, handleClick, style}) => {
+    const navigate = useNavigate()
+    const handleClickArtist = (item)=>{
+        navigate(PATH.ARTIST.replace(':name', item))
+    }
     return (
         <div className={`gap-4 p-[10px] group cursor-pointer ${style}`} onClick={() => handleClick(item)} >
             <div className="flex gap-4 items-center w-full">
@@ -27,7 +34,7 @@ const Song = ({item, handleClick, style}) => {
                     <div className="">
                         {
                             item?.artists?.map((artist, index) => (
-                                <a href="" className="text-[#7C7883] hover:text-[#9B4DE0] text-[12px] font-medium truncate overflow-ellipsis">{artist.name}{index < item?.artists?.length - 1 && ', '}</a>
+                                <a className="text-[#7C7883] hover:text-[#9B4DE0] text-[12px] font-medium truncate overflow-ellipsis" key={index} onClick={()=>handleClickArtist(artist?.alias)}>{artist.name}{index < item?.artists?.length - 1 && ', '}</a>
                             ))
                         }
                     </div>

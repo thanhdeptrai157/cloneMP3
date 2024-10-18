@@ -12,9 +12,8 @@ import Radio from "./Radio";
 const Discover = () => {
 
     const { play_list1, play_list2, hot_album, top100} = useSelector(state => state.app)
-    console.log(play_list1)
     return (
-        <div className="flex flex-col h-full w-full">
+        <div className="flex flex-col px-[59px] mt-[70px]">
             <Galery />
             <NewRelease />  
             <Playlist play_list={play_list1}/>

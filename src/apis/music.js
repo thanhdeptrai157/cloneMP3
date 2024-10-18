@@ -38,3 +38,17 @@ export const getPlaylistMusic = (pid) => new Promise(async (resolve, reject)=>{
         reject(error)
     }
 })
+
+export const getLyric = (sid) => new Promise(async (resolve, reject)=>{
+    try {
+        const response = await axios({
+            url: '/lyric',
+            method: 'get',
+            params: {id: sid},
+        });
+        resolve(response)
+    }
+    catch (error){
+        reject(error)
+    }
+})

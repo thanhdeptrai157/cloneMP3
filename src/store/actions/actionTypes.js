@@ -4,7 +4,6 @@ const actionType = {
     PLAY: 'PLAY',
     GET_ARTIST: 'GET_ARTIST',
     PLAYLIST: 'PLAY_LIST',
-    
 }
 
 export default actionType;

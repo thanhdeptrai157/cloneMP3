@@ -106,7 +106,7 @@ const ChartSection = () => {
                         chart?.items?.slice(0, 3).map((item, key) => {
                             const customClass = key === 0 ? 'order-top1' : key === 1 ? 'order-top2' : key === 2 ? 'order-top3' : '';
                             return (
-                                <div key={item.id} className={`flex bg-[#4B2565] mb-3 py-[10px] px-[15px] items-center w-full rounded-md hover:bg-[#654579] group`}>
+                                <div key={key} className={`flex bg-[#4B2565] mb-3 py-[10px] px-[15px] items-center w-full rounded-md hover:bg-[#654579] group`}>
                                     <span className={`text-[32px] font-bold mr-6 ${customClass} text-transparent`}>{key + 1}</span>
                                     <div className='relative'>
                                         <img src={item.thumbnailM} alt="" className='w-[60px] h-[60px] mr-2 group-hover:brightness-50' />

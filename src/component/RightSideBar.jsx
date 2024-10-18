@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import Song from './Song';
+import Song2 from './Song2';
 import * as apis from '../apis/music';
 
 const RightSideBar = ({ isShow }) => {
@@ -13,7 +13,6 @@ const RightSideBar = ({ isShow }) => {
             if (response1.data.err === 0) {
                 setSong(response1.data.data);
             }
-            
         };
         fetchSong();
     }, [curSongId]);
@@ -22,13 +21,13 @@ const RightSideBar = ({ isShow }) => {
     return (
         <div className={`h-[calc(100vh-90px)] w-[330px] fixed right-0 z-[51] transition-all ease-in-out duration-300
             ${isShow ? 'translate-x-0' : 'translate-x-full'} bg-[#120822]`}>
-            <div className='h-[70px] w-full bg-red-100'>
-                <Song item={song} style={style} />
+            <div className='h-[70px] w-full'>
+                <Song2 song={song} />
             </div>
             <div className='text-white'>Tiếp theo</div>
             <div className='overflow-y-auto' style={{ maxHeight: 'calc(100vh - 160px)' }}>
                 {songs?.map((item, index) => (
-                    <Song key={index} item={item} />
+                    <Song2 key={index} song={item} />
                 ))}
             </div>
         </div>
